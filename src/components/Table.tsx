@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 interface Product {
   name: string;
   description: string;
-  price: string;
+  price: number | string;
   image: string;
 }
 
-export default function ProductManager() {
+export default function Table() {
   const [products, setProducts] = useState<Product[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState<Product>({
@@ -52,7 +52,7 @@ export default function ProductManager() {
         <p className="text-2xl font-semibold">Products</p>
         <button
           onClick={() => setModalOpen(true)}
-          className="bg-purple-600 text-white px-4 py-2 rounded-md"
+          className="bg-green-600 text-white px-4 py-2 rounded-md"
         >
           New +
         </button>
@@ -76,7 +76,7 @@ export default function ProductManager() {
               </td>
               <td className="px-5 py-8">{p.name}</td>
               <td className="px-5 py-8">{p.description}</td>
-              <td className="px-5 py-8">${parseFloat(p.price).toFixed(2)}</td>
+              <td className="px-5 py-8">${p.price}</td>
               <td>
                 <button
                   onClick={() => handleDelete(i)}
@@ -92,7 +92,7 @@ export default function ProductManager() {
 
       {modalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-[#413f3f] bg-opacity-50 flex items-center justify-center z-50"
           onClick={() => setModalOpen(false)}
         >
           <div
@@ -136,7 +136,7 @@ export default function ProductManager() {
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="col-span-2 bg-purple-700 text-white px-4 py-2 rounded mt-2"
+                  className="col-span-2 bg-green-700 text-white px-4 py-2 rounded mt-2"
                 >
                   Add
                 </button>
