@@ -60,24 +60,24 @@ export default function Table() {
 
       <table className="w-full shadow-md">
         <thead>
-          <tr className="bg-gray-800 text-white text-center">
-            <th className="py-2 px-4">Image</th>
+          <tr className="bg-gray-800 text-white text-center rounded-tl-xl rounded-tr-xl">
+            <th className="py-2 px-4 rounded-tl-xl">Image</th>
             <th className="py-2 px-4">Product Name</th>
             <th className="py-2 px-4">Description</th>
             <th className="py-2 px-4">Price</th>
-            <th className="py-2 px-4">Actions</th>
+            <th className="py-2 px-4 rounded-tr-xl">Actions</th>
           </tr>
         </thead>
         <tbody>
           {products.map((p, i) => (
             <tr key={i} className="text-center py-8">
-              <td className="px-5 py-8">
-                <img src={p.image} alt="Product" width={80} />
+              <td className="px-5 py-6  flex items-center justify-center">
+                <img src={p.image} alt="Product" width={80} className="rounded-md"/>
               </td>
-              <td className="px-5 py-8">{p.name}</td>
-              <td className="px-5 py-8">{p.description}</td>
-              <td className="px-5 py-8">${p.price}</td>
-              <td>
+              <td className="px-5 py-6">{p.name}</td>
+              <td className="px-5 py-6">{p.description}</td>
+              <td className="px-5 py-6">${p.price}</td>
+              <td >
                 <button
                   onClick={() => handleDelete(i)}
                   className="bg-red-600 text-white px-2 py-1 rounded"
